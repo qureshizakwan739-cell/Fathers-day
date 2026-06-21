@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Father's Day</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Outfit',sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background: radial-gradient(ellipse at bottom, #0b1224 0%, #050816 100%);
+}
+
+/* 💎 FULLY TRANSPARENT TEXT BOX */
+.card{
+  width:min(92%,900px);
+  padding:60px 30px 80px 30px; 
+  text-align:center;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
+  background: transparent;   
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 1; 
+}
+
+/* 🌈 COLORFUL GLOWING BORDER (Sleek Version) */
+.card::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius:30px;
+  padding: 1.5px; /* 🔥 Border thickness 4px se kam karke 1.5px kar di */
+  background: linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ffcc,
+    #38B6FF,
+    #7c3aed,
+    #ff004c
+  );
+  background-size:400% 400%;
+  animation:borderMove 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+}
+
+@keyframes borderMove{
+  0%{background-position:0% 50%}
+  100%{background-position:400% 50%}
+}
+
+h1{
+  font-size:clamp(2.8rem,8vw,5.5rem);
+  margin:20px 0;
+  font-weight:800;
+  background:linear-gradient(90deg,#fff,#38B6FF,#fff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+#typing{
+  color:#ff4d6d;
+  font-weight:600;
+  min-height:30px;
+  margin-bottom:20px;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  text-shadow: 0 0 15px rgba(255, 77, 109, 0.4);
+}
+
+.msg{
+  color:#d1d5db;
+  line-height:1.9;
+  max-width:700px;
+  margin:auto;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+}
+
+.heart{
+  font-size:65px;
+  margin-top:25px;
+  animation:beat 1.2s infinite;
+  filter:drop-shadow(0 0 25px #ff4d6d);
+  display: inline-block;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.35);}
+}
+
+/* 🏷️ BOTTOM RIGHT FOOTER TEXT */
+.from-text {
+  position: absolute;
+  bottom: 25px;
+  right: 35px;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
+  color: rgba(209, 213, 219, 0.6);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* 🌌 STARS (On Top) */
+.stars{
+  position:fixed;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation:move linear infinite;
+  z-index: 3; 
+  pointer-events: none;
+}
+
+@keyframes move{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+
+/* ❤️ FLOATING HEARTS FROM BOTTOM (On Top) */
+.floating-heart {
+  position: fixed;
+  bottom: -50px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+  z-index: 3; 
+  filter: drop-shadow(0 0 8px #ff4d6d);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-115vh) translateX(var(--sway)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 🌌 ORBS GOING UPWARDS (On Top) */
+.orb{
+  position:fixed;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  filter:blur(130px);
+  opacity:.2; 
+  animation: orbitUp 18s linear infinite;
+  z-index: 2; 
+  pointer-events: none;
+}
+
+.orb.one{
+  background:#38B6FF;
+  left: 15%;
+  animation-duration: 20s;
+}
+
+.orb.two{
+  background:#7c3aed;
+  left: 60%;
+  animation-duration: 26s;
+  animation-delay: -7s;
+}
+
+@keyframes orbitUp {
+  0% { transform: translateY(110vh) scale(0.8); }
+  50% { transform: translateY(50vh) scale(1.2) translateX(50px); }
+  100% { transform: translateY(-60vh) scale(0.8) translateX(-30px); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+
+<div class="card">
+  <h1>BABA</h1>
+
+  <div id="typing"></div>
+
+  <div class="msg">
+    Jaise jaise main bada ho raha hoon, mujhe samajh aa raha hai ki aapne hamare liye kitni khamoshi se mehnat ki hai. Thank you meri dhaal banne ke liye aur mujhe sahi rasta dikhane ke liye.<br><br>
+    Happy Father's Day ❤️
+  </div>
+
+  <div class="heart">❤️</div>
+  
+  <div class="from-text">From: All Your Children</div>
+</div>
+
+<script>
+
+/* typing effect */
+const text="Aap meri sabse badi taqat aur sabse behtareen guide hain ❤️";
+let i=0;
+
+function type(){
+  const el=document.getElementById("typing");
+  if(i<text.length){
+    el.innerHTML+=text[i++];
+    setTimeout(type,55);
+  }
+}
+type();
+
+/* background stars */
+for(let i=0;i<60;i++){
+  let s=document.createElement("div");
+  s.className="stars";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(Math.random()*8+5)+"s";
+  document.body.appendChild(s);
+}
+
+/* ❤️ RED FLOATING HEARTS GENERATOR */
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="floating-heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  
+  let size = Math.random()*20 + 15;
+  h.style.fontSize= size + "px";
+  
+  h.style.animationDuration=(Math.random()*6+5)+"s";
+  h.style.animationDelay=(Math.random()*5)+"s";
+  
+  let sway = (Math.random()*120 - 60) + "px";
+  h.style.setProperty('--sway', sway);
+  
+  document.body.appendChild(h);
+}
+
+</script>
+
+</body>
+</html>
